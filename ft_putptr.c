@@ -16,7 +16,7 @@ static char	*make_s(int i, long unsigned temp, char *s)
 {
 	while (temp > 0)
 	{
-		s[i--] = "0123456789abcedf"[temp % 16];
+		s[i--] = "0123456789abcdef"[temp % 16];
 		temp /= 16;
 	}
 	return (s);
