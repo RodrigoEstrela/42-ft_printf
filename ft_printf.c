@@ -6,7 +6,7 @@
 /*   By: rdas-nev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 11:27:47 by rdas-nev          #+#    #+#             */
-/*   Updated: 2022/03/07 13:05:35 by rdas-nev         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:55:42 by rdas-nev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ static void	ft_format(char formater, t_print *tab)
 		ft_putsigned(tab);
 	else if (formater == 'u')
 		ft_putunsigned(tab);
-	else if (formater == 'x')
-		ft_puthex(tab);
-	else if (formater == 'X')
-		ft_puthexupp(tab);
+	else if (formater == 'x' || formater == 'X')
+		ft_puthex(tab, formater);
 	else if (formater == '%')
 		tab->lentot += write(1, "%", 1);
 }
@@ -46,7 +44,7 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	ret = 0;
-	tab = (t_print *)malloc(sizeof(t_print));
+	tab = (t_print *)ft_calloc(1, sizeof(t_print));
 	if (!tab)
 		return (-1);
 	ft_initialise_tab(tab);
