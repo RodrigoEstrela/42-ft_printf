@@ -6,7 +6,7 @@
 /*   By: rdas-nev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 10:56:34 by rdas-nev          #+#    #+#             */
-/*   Updated: 2022/03/07 13:03:25 by rdas-nev         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:42:40 by rdas-nev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ static int	ft_newstrlen(unsigned int temp)
 	return (i);
 }
 
-void	ft_puthex(t_print *tab)
+void	ft_puthex(t_print *tab, char formater)
 {
-	unsigned int	n;
+	unsigned long	n;
 	char			*a;
 	int				i;
-	unsigned int	temp;
+	unsigned long	temp;
 
 	i = 0;
-	n = va_arg(tab->args, int);
+	n = va_arg(tab->args, long);
 	temp = n;
 	if (n < 0)
 	{
@@ -48,6 +48,8 @@ void	ft_puthex(t_print *tab)
 		a[i--] = "0123456789abcdef"[n % 16];
 		n /= 16;
 	}
+	if (formater == 'X')
+		a = ft_strupcase(a);
 	tab->lentot += write(1, a, ft_strlen(a));
 	free(a);
 }
