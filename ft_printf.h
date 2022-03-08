@@ -6,7 +6,7 @@
 /*   By: rdas-nev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:46:29 by rdas-nev          #+#    #+#             */
-/*   Updated: 2022/03/07 13:07:40 by rdas-nev         ###   ########.fr       */
+/*   Updated: 2022/03/08 13:39:05 by rdas-nev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void		ft_putstr(t_print *tab);
 
 void		ft_putchar(t_print *tab);
 
-void		ft_puthex(t_print *tab);
+void		ft_puthex(t_print *tab, char formater);
 
-void		ft_puthexupp(t_print *tab);
+char		*ft_strupcase(char *str);
 
 void		ft_putptr(t_print *tab);
 
