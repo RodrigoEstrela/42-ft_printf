@@ -6,7 +6,7 @@
 /*   By: rdas-nev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 10:56:34 by rdas-nev          #+#    #+#             */
-/*   Updated: 2022/03/08 14:42:40 by rdas-nev         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:26:19 by rdas-nev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,8 @@ void	ft_puthex(t_print *tab, char formater)
 	i = 0;
 	n = va_arg(tab->args, long);
 	temp = n;
-	if (n < 0)
-	{
-		tab->lentot += write(1, "-", 1);
-		n *= (-1);
-		i++;
-	}
 	i = ft_newstrlen(temp);
-	a = (char *)ft_calloc(i, sizeof(char *));
+	a = (char *)ft_calloc(i + 1, sizeof(char *));
 	while (n >= 0 && i >= 0)
 	{
 		a[i--] = "0123456789abcdef"[n % 16];
